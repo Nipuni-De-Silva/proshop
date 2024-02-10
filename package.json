@@ -4,7 +4,7 @@
   "description": "eCommerce application using the MERN stack",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js"
+    "start": "nodemon backend/server.js"
   },
   "author": "Nipuni De Silva",
   "license": "MIT",
