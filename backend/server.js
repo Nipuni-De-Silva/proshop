@@ -1,11 +1,14 @@
 const express = require('express');
 const products = require('./data/products');
 const app = express();
+//import env file
+require('dotenv').config();
 
-const port = 5000;
+
+const port = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
-    res.send('Hello World');
+    res.send('Hello Proshop Customers');
 })
 
 app.get('/api/products', (req, res) => {
