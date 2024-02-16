@@ -1,14 +1,18 @@
+require('dotenv').config();
 const express = require('express');
 const products = require('./data/products');
+const connectDB = require('./config/db');
+
+connectDB();
+
 const app = express();
-//import env file
-require('dotenv').config();
+
 
 
 const port = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
-    res.send('Hello Proshop Customers');
+    res.send('API is running ....');
 })
 
 app.get('/api/products', (req, res) => {
