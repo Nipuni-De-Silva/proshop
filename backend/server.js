@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const connectDB = require('./config/db');
 const productRoutes = require('./routes/productRoutes');
+const {notFound, errorHandler} = require('./middleware/errorMiddleware');
 
 connectDB();
 
@@ -15,6 +16,9 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/products', productRoutes)
+
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
