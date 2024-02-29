@@ -13,6 +13,9 @@
 // import HomeScreen from './screens/HomeScreen';
 // import ProductScreen from './screens/ProductScreen';
 // import reportWebVitals from './reportWebVitals';
+// import { Provider } from 'react-redux';
+// import store from './store.js';
+
 
 // const router = createBrowserRouter(
 //   createRoutesFromElements(
@@ -26,7 +29,9 @@
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
 //   <React.StrictMode>
-//     <RouterProvider router={router} />
+//     <Provider store={store}>
+//       <RouterProvider router={router} />
+//     </Provider>
 //   </React.StrictMode>
 // );
 
@@ -41,19 +46,23 @@ import App from './App';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import store from './store.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<HomeScreen />} />
-          <Route path="product/:id" element={<ProductScreen />} />
-        </Route>
-      </Routes>
-    </Router>
+      <Provider store={store}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<HomeScreen />} />
+            <Route path="product/:id" element={<ProductScreen />} />
+          </Route>
+        </Routes>
+      </Router>
+      </Provider>
   </React.StrictMode>
 );
 
